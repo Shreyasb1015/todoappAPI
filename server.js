@@ -7,6 +7,10 @@ const connectDB=require('./config/db');
 const app=express();
 
 app.use(morgan('dev'));
+app.use(express.json({}));
+app.use(express.json({
+   extended:true
+}))
 
 
 dotenv.config({
