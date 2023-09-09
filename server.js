@@ -16,14 +16,10 @@ dotenv.config({
 
 connectDB();
 
+app.use('/api/todo/auth',require('./routes/user'));
 
-app.get('/todo',(req,resposne)=>{
 
-   resposne.status(200).json({
-      "name":"Shreyas",
-      
-   });
-});
+
 
 const PORT= process.env.PORT||3000;
 
