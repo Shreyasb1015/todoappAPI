@@ -6,14 +6,14 @@ module.exports=async function(req,res,next){
 
     if(!token)
     {
-        return res.json.status(401).json({
+        return res.status(401).json({
             msg:'No token,authorization denied'
         });
     }
 
     try{
 
-        await jwt.verify(token,proccess.env.jwtUserSecret,(err,decoded)=>{
+        await jwt.verify(token,process.env.jwtUserSecret,(err,decoded)=>{
 
             if(err)
             {
@@ -29,8 +29,9 @@ module.exports=async function(req,res,next){
     }catch(err)
     {
             console.log('Something went wrong with middleware'+err);
-            res.json(500).json({
-                msg:'Server error'
+            res.status(500).json({
+                    success:false,
+                    msg:'Server error'
             })
     }
 }
