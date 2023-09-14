@@ -5,6 +5,7 @@ const bcryptjs=require('bcryptjs');
 const user_jwt=require('../middleware/user_jwt');
 const jwt = require('jsonwebtoken');
 
+
 router.get('/',user_jwt,async(req,res,next)=>{
 
     try{
